@@ -45,7 +45,7 @@ int commit_walk(commit_walk_fn callback, void *ctx);
 // reads .pes/refs/heads/main to get the actual commit hash.
 // Returns 0 on success, -1 if no commits yet (empty repository).
 int head_read(ObjectID *id_out);
-
+void cmd_commit(int argc, char *argv[]);
 // Update HEAD (or the branch it points to) to a new commit hash.
 // Must use atomic write (temp file + rename).
 int head_update(const ObjectID *new_commit);
