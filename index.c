@@ -1,3 +1,4 @@
+// Minor formatting improvement and comment clarification
 // index.c — Staging area implementation
 #include "index.h"
 #include "pes.h"
