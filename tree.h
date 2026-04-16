@@ -6,15 +6,15 @@
 
 #ifndef TREE_H
 #define TREE_H
-
+#include "index.h"
 #include "pes.h"
 
 #define MAX_TREE_ENTRIES 1024
 
 typedef struct {
-    uint32_t mode;          // 100644 (regular), 100755 (executable), 040000 (directory)
-    ObjectID hash;          // SHA-256 of the blob or subtree
-    char name[256];         // Entry name (filename or directory name, no path separators)
+    int mode;
+    char name[256];
+    ObjectID hash;
 } TreeEntry;
 
 typedef struct {
@@ -36,6 +36,5 @@ int tree_serialize(const Tree *tree, void **data_out, size_t *len_out);
 // (e.g., "src/main.c"), this function must create subtrees.
 // Writes all tree objects to the object store.
 // Returns the root tree's ObjectID in *id_out.
-int tree_from_index(ObjectID *id_out);
-
+int tree_from_index(const Index *idx, ObjectID *id_out);
 #endif // TREE_H

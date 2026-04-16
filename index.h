@@ -17,6 +17,7 @@ typedef struct {
     uint64_t mtime_sec;     // Last modification time (seconds since epoch)
     uint32_t size;          // File size in bytes at time of staging
     char path[512];         // Relative path from repo root (e.g., "src/main.c")
+    ObjectID id;
 } IndexEntry;
 
 typedef struct {
